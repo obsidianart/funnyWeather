@@ -17,6 +17,7 @@ require([
 	"jquery",
 	"underscore",
 	"weatherApi",
+	"js/vendor/skycons",
 	"js/quotes",
 	"text!templates/nav.html",
 	"text!templates/main.html"
@@ -24,12 +25,15 @@ require([
 		$,
 		_,
 		weather,
+		_Skycons,
 		weatherQuotes,
 		navTemplate,
 		mainTemplate
 	) {
 		var navTemplate = _.template(navTemplate);
 		var mainTemplate = _.template(mainTemplate);
+
+		var skycons = new Skycons({"color": "#2da7df"});
 
 		$('nav').html(navTemplate ({
 
@@ -41,5 +45,13 @@ require([
 			temperature : weather.currently.temperature,
 			description : weatherQuotes.partlyCloudy[0]
 		}));
+
+		var iconContainer = $('#main-forecast').find('.condition-animation').get(0);
+		skycons.add(iconContainer, Skycons[getSkyconStatus(weather.currently.icon)]);
+		skycons.play();
+
+		function getSkyconStatus(icon) {
+			return icon.toUpperCase().replace(/-/gi,'_')
+		}
 	}
 );

@@ -118,12 +118,8 @@ nav {
     padding-right: 8px;
     line-height: 15px;
 }
-.condition:after {
-    content: '';
-    width: 201px;
-    height: 175px;
-    background: transparent url("../img/icon-1.png") no-repeat;
-    display: block;
+
+.condition-animation {
     margin: 25px auto;
 }
 

@@ -12,12 +12,15 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-       <div class="container">
+        <div class="container">
             <div class="content-wrapper">
                 <nav></nav>
                 <div id="main-forecast"></div>
             </div>
         </div>
+        <footer>
+            <a href="https://github.com/darkskyapp/skycons">Skycons</a>
+        </footer>
 
         <script src="js/vendor/require.js"></script>
         <script src="js/main.js"></script>
