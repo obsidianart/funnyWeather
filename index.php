@@ -1,3 +1,6 @@
+<?php
+    include 'conf.php';
+?>
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -33,7 +36,7 @@
         <script src="js/vendor/underscore-min.js"></script>
         <script src="js/main.js"></script>
 
-        <script src="https://api.forecast.io/forecast/key/51.5072,0.1275?units=ca&callback=init"></script>
+        <script src="https://api.forecast.io/forecast/<?php echo WEATHER_KEY; ?>/51.5072,0.1275?units=ca&callback=init"></script>
         
     </body>
 </html>

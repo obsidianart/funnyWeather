@@ -13,7 +13,7 @@ function init(data) {
 
 /*
 $.ajax({
-	url: "https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5072,0.1275?units=ca",
+	url: "https://api.forecast.io/forecast//51.5072,0.1275?units=ca",
 	//cache: false,
 	dataType: "json"
 }).done(function( data ) {
