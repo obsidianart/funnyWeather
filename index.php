@@ -15,8 +15,10 @@
         <div class="container">
             <div class="content-wrapper">
                 <nav></nav>
-                <div id="forecast" class="carousel-inner" data-interval="false">
+                <div id="forecast-wrapper">
+                    <div id="forecast">
 
+                    </div>
                 </div>
             </div>
         </div>
