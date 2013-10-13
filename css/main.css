@@ -83,9 +83,14 @@ textarea {
     overflow:hidden;
 }
 
+#forecast {
+    width:3000px;
+}
+
 .day {
     width: 294px; 
     overflow: hidden;
+    float:left;
 }
 
 

@@ -76,9 +76,11 @@ require([
 		});
 		skycons.play();
 
+		$('#forecast').width(294*$('.day').length);
 		myScroll = new iScroll('forecast-wrapper', {
 			hScrollbar: false,
 			vScrollbar: false,
+			vScroll:false,
 			snap: '.day',
 		});
 
