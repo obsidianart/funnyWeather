@@ -1,4 +1,6 @@
-<h1 class="location"><%= location %></h1>
-<h2 class="condition"><%= summary %> • <%= temperature %>&#176;</h2>
-<canvas class="condition-animation" width="294" height="175"></canvas>
-<p class="description"><%= description %></p>
+<div class="day">
+	<h1 class="location"><%= location %></h1>
+	<h2 class="condition"><%= summary %> • <%= temperature %></h2>
+	<canvas class="condition-animation" width="294" height="175" data-icon="<%= icon %>"></canvas>
+	<p class="description"><%= description %></p>
+</div>

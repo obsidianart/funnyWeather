@@ -15,7 +15,7 @@
         <div class="container">
             <div class="content-wrapper">
                 <nav></nav>
-                <div id="main-forecast"></div>
+                <div id="forecast"></div>
             </div>
         </div>
         <footer>
