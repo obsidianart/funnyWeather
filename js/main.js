@@ -1,15 +1,31 @@
+
+function init(data) {
+	//location, temperature, description, summary
+	var template = $('#weather-template').html();
+	var genTemplate = _.template(template);
+	$(".content-wrapper").html(genTemplate ({
+		location: "London",
+		summary : data.currently.summary,
+		temperature : data.currently.temperature,
+		description : weatherQuotes.partlyCloudy[0]
+	}));
+}
+
+/*
 $.ajax({
-	url: "http://query.yahooapis.com/v1/public/yql?q=select item from weather.forecast where woeid=%2244418%22&format=json",
+	url: "https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5072,0.1275?units=ca",
 	//cache: false,
 	dataType: "json"
 }).done(function( data ) {
+
+
 	var item = data.query.results.channel.item;
 	var i;
 	var foreItem;
 	var foreText;
 	var forecast = "";
 
-	/*$('#title').html(item.title);
+	$('#title').html(item.title);
 	$('#today .condition').html(item.condition.text + " and the temperature is " + item.condition.temp + "F");
 
 	for (i=0; i<item.forecast.length; i++) {
@@ -18,7 +34,7 @@ $.ajax({
 		forecast += '<div><img src="../img/forecast-'+foreItem.code+'.png" alt="'+foreItem.text+'">'+ foreText + '</div>';
 	}
 	$('#forecast').html(forecast);
-	*/
+	
 
 	var forecastTemplate = _.template("On <%= date %> it will be <strong> <%= forecast %></strong> and the temperature is between <%= min %>F and <%= max %>F");
 	for (i=0; i<item.forecast.length; i++) {
@@ -45,3 +61,9 @@ $.ajax({
 		forecast : forecast
 	}));
 });
+
+*/
+
+var weatherQuotes = {
+	"partlyCloudy" : ['Just enough <span class="highlighted">sun</span> to forget your <span class="highlighted">umbrella</span>']
+}

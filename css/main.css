@@ -72,14 +72,18 @@ textarea {
     color: #282626;  
     margin-left: 58px;
 }
+nav {
+    width: 100%;
+    overflow: hidden;
+}
 .date-menu {
     margin: auto;
     padding: 0px;
     list-style-type: none;
     font-size: 14px;
-    text-align: center;
     background-color: #2da7df;
     line-height: 2em;
+    width: 1000px;
 }
 .date-menu li {
     display: inline-block;

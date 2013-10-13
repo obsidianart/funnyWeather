@@ -12,26 +12,28 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-    <!--    <script id="weather-template" type="template">
-            <h1 id="title"><%= title %></h1>
-            <h2 id="today">Today is <span class="condition"><%= condition %></span></h2>
-            <div id="forecast"><%= forecast %></div>
+       <div class="container">
+            <div class="content-wrapper">
+                
+            </div>
+        </div>
+
+        <script id="weather-template" type="template">
+            <nav>
+                <ul class="date-menu">
+                    <li><a href="#">Today</a></li><li><a href="#">Tomorrow</a></li><li><a href="#">Wednesday</a></li><li><a href="#">Thursday</a></li>
+                </ul>
+            </nav>
+            <h1 class="location"><%= location %></h1>
+            <h2 class="condition"><%= summary %> • <%= temperature %>&#176;</h2>
+            <p class="description"><%= description %></p>
         </script>
 
         <script src="js/vendor/jquery-1.10.1.js"></script>
         <script src="js/vendor/underscore-min.js"></script>
-        <script src="js/main.js"></script> -->
-       <div class="container">
-            <div class="content-wrapper">
-                <nav>
-                    <ul class="date-menu">
-                        <li><a href="#">Today</a></li><li><a href="#">Tomorrow</a></li><li><a href="#">Wednesday</a></li>
-                    </ul>
-                </nav>
-                <h1 class="location">London</h1>
-                <h2 class="condition">Partly cloudy - 22&#176;</h2>
-                <p class="description">Just enough <span class="highlighted">sun</span> to forget your <span class="highlighted">umbrella</span></p>
-            </div>
-        </div>
+        <script src="js/main.js"></script>
+
+        <script src="https://api.forecast.io/forecast/key/51.5072,0.1275?units=ca&callback=init"></script>
+        
     </body>
 </html>
