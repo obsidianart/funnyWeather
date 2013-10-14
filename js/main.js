@@ -5,7 +5,8 @@ requirejs.config({
 	    jquery: 'js/vendor/jquery-1.10.1',
 	    iscroll: 'js/vendor/iscroll/iscroll',
 	    underscore: 'js/vendor/underscore-min',
-	    weatherApi: 'forecast',// 'https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5072,0.1275?units=uk&exclude=minutely,hourly&callback=define',
+	    //weatherApi: 'forecast',
+	    weatherApi: 'https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5072,0.1275?units=uk&exclude=minutely,hourly&callback=define',
 		bootstrap: 'js/vendor/bootstrap'
 	},
 	shim: {
@@ -47,12 +48,14 @@ require([
 		var navTemplate = _.template(navTemplate);
 		var mainTemplate = _.template(mainTemplate);
 		var $foreCast = $('#forecast');
-		var location = "London"
+		var location = "London";
+		var weekday= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 		var skycons = new Skycons({"color": "#2da7df"});
 
 		//adding the nav
 		$('nav').html(navTemplate ({}));
+
 
 		//adding today weather
 		$foreCast.html(mainTemplate ({
@@ -63,9 +66,11 @@ require([
 			icon:getSkyconStatus(weather.currently.icon),
 			active: true
 		}));
+		$('nav .date-menu').append('<li><a href="#">Today</a></li>');
 
 		//adding forecast
 		$.each(weather.daily.data, function(i,el){
+			if (i==0) return; //first one is today
 			$foreCast.append(mainTemplate ({
 				location: location,
 				summary : el.summary,
@@ -74,24 +79,51 @@ require([
 				icon:getSkyconStatus(el.icon),
 				active: false
 			}));
-		})
+
+			var date = new Date(el.time*1000);
+			
+			var day = weekday[date.getDay()];
+			if (i==1){
+				day = "Tomorrow";
+			}
+			$('nav .date-menu').append('<li><a href="#">' + day + '</a></li>');
+		});
 
 		var iconContainer = $foreCast.find('.condition-animation').each(function(i,el){
 			skycons.add(el, Skycons[$(el).data('icon')]);
 		});
 
-		//skycons.play();
+		skycons.play();
 
+		//iScroll
 		$('#forecast').width(294*$('.day').length);
-		myScroll = new iScroll('forecast-wrapper', {
+		window.myScroll = new iScroll('forecast-wrapper', {
 			hScrollbar: false,
 			vScrollbar: false,
 			vScroll:false,
 			snap: '.day',
 		});
 
+		function updateTopMenu(){
+			$('.date-menu li.current').removeClass('current');
 
+			var page = window.myScroll.currPageX;
+			var pos = $('.date-menu li')
+				.eq(page)
+				.addClass('current')
+				.position()
+				.left;
 
+			pos-=100;
+			pos = pos>0? pos : 0;
+			$('.date-menu').css('left',pos * -1)
+		}
+
+		window.updateTopMenu = updateTopMenu;
+
+		setInterval(updateTopMenu,50)
+
+		//requestAnimationFrame(updateTopMenu);
 
 
 		function getSkyconStatus(icon) {

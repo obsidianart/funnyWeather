@@ -28,7 +28,12 @@
 
         </div>
         <footer>
-            <a href="https://github.com/darkskyapp/skycons">Skycons</a>
+            <a target="_blank" href="http://www.obsidianart.com">Design and code: Stefano Solinas</a><br><br>
+
+            <a target="_blank" href="http://forecast.io">Forecast.io</a> - 
+            <a target="_blank" href="https://github.com/darkskyapp/skycons">Skycons</a> -
+            <a target="_blank" href="https://github.com/darkskyapp/skycons">Mobile frame</a>
+
         </footer>
 
         <script src="http://heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js"></script>

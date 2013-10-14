@@ -61,6 +61,11 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+    color:#333;
+}
+
 .container {
     width: 417px;
     height: 680px;
@@ -72,10 +77,9 @@ textarea {
 .content-wrapper {
     width: 294px; 
     height:461px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
-    color: #282626;  
     margin-left: 58px;
     position:relative;
+    /*color: #282626;*/
 }
 
 #forecast-wrapper {
@@ -97,36 +101,61 @@ textarea {
 }
 
 
-
+/*Menu*/
 nav {
-    width: 100%;
     overflow: hidden;
+    margin-left:2px;
+    position:relative;
+    height:29px;
 }
 .date-menu {
-    margin: auto;
+    margin: 0 auto;
     padding: 0px;
     list-style-type: none;
     font-size: 14px;
     background-color: #2da7df;
     line-height: 2em;
     width: 1000px;
+    position:absolute;
+    left:0;
+    top:0;
+
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
+
 .date-menu li {
     display: inline-block;
     border-right: 2px solid white;
 }
+
 .date-menu li:last-child {
     border-right: 0;
 }
-.date-menu a {
-    padding: 5px 15px;
+.date-menu li a {
+    padding: 6px 15px;
     text-decoration: none;
     color: #ffffff;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
-.date-menu a:hover {
-    background-color: #8dabef;
+.date-menu li a:hover {
     background-color: #56B5F3;
 }
+
+.date-menu li.current a{
+    background-color:white;
+    color:#2da7df;
+    font-weight: bold;
+}
+
+
+/*main*/
+
 .location {
     font-size: 58px;
     font-weight: lighter;
