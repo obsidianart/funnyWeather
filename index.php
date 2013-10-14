@@ -20,11 +20,29 @@
 
                     </div>
                 </div>
+                <div id="loader">
+                    <div id="canvasloader-container" class="wrapper"></div>
+                    <h2>Forecasting the weather!<br>Please wait...</h2>
+                </div>
             </div>
+
         </div>
         <footer>
             <a href="https://github.com/darkskyapp/skycons">Skycons</a>
         </footer>
+
+        <script src="http://heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js"></script>
+        <script>
+            //loader
+            var cl = new CanvasLoader('canvasloader-container');
+            cl.setColor('#2da7df'); // default is '#000000'
+            cl.setShape('spiral'); // default is 'oval'
+            cl.setDiameter(100); // default is 40
+            cl.setDensity(46); // default is 40
+            cl.setSpeed(1); // default is 2
+            cl.setFPS(30); // default is 24
+            cl.show(); // Hidden by default
+        </script>
 
         <script src="js/vendor/require.js"></script>
         <script src="js/main.js"></script>

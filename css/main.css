@@ -63,16 +63,19 @@ textarea {
    ========================================================================== */
 .container {
     width: 417px;
-    height: 790px;
+    height: 680px;
     background: transparent url("../img/phone.png") no-repeat;  
     margin: 50px auto;
     padding-top: 108px;
 }
+
 .content-wrapper {
     width: 294px; 
+    height:461px;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
     color: #282626;  
     margin-left: 58px;
+    position:relative;
 }
 
 #forecast-wrapper {
@@ -160,7 +163,22 @@ nav {
 }
 
 
+/*------Loader--------*/
+#loader {
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    padding-top:140px;
+    text-align: center;
+    background-color: white;
+    z-index: 100;
+}
 
+#loader h2 {
+    font-size:20px;
+}
 
 /*------Carousel--------*/
 

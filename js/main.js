@@ -5,7 +5,7 @@ requirejs.config({
 	    jquery: 'js/vendor/jquery-1.10.1',
 	    iscroll: 'js/vendor/iscroll/iscroll',
 	    underscore: 'js/vendor/underscore-min',
-	    weatherApi: 'https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5072,0.1275?units=uk&exclude=minutely,hourly&callback=define',
+	    weatherApi: 'forecast',// 'https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5072,0.1275?units=uk&exclude=minutely,hourly&callback=define',
 		bootstrap: 'js/vendor/bootstrap'
 	},
 	shim: {
@@ -39,6 +39,11 @@ require([
 		navTemplate,
 		mainTemplate
 	) {
+		//removing the loader
+		$('#loader').fadeOut('normal',function(){
+			this.remove();
+		})
+
 		var navTemplate = _.template(navTemplate);
 		var mainTemplate = _.template(mainTemplate);
 		var $foreCast = $('#forecast');
@@ -74,7 +79,8 @@ require([
 		var iconContainer = $foreCast.find('.condition-animation').each(function(i,el){
 			skycons.add(el, Skycons[$(el).data('icon')]);
 		});
-		skycons.play();
+
+		//skycons.play();
 
 		$('#forecast').width(294*$('.day').length);
 		myScroll = new iScroll('forecast-wrapper', {
