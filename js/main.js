@@ -5,8 +5,8 @@ requirejs.config({
 	    jquery: 'js/vendor/jquery-1.10.1',
 	    iscroll: 'js/vendor/iscroll/iscroll',
 	    underscore: 'js/vendor/underscore-min',
-	    weatherApi: 'forecast',
-	    //weatherApi: 'https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5072,0.1275?units=uk&exclude=minutely,hourly&callback=define',
+	    //weatherApi: 'mocks/forecast',
+	    weatherApi: 'https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/51.5173,-0.1063?units=uk&exclude=minutely,hourly&callback=define',
 		bootstrap: 'js/vendor/bootstrap'
 	},
 	shim: {
@@ -38,6 +38,36 @@ require([
 		carousel,
 		mainTemplate
 	) {
+		if (navigator.geolocation) {
+		  navigator.geolocation.getCurrentPosition(function(pos){
+		  	//success
+		  	$.ajax({
+		  		url:"http://maps.googleapis.com/maps/api/geocode/json?latlng="+ pos.coords.latitude +","+ pos.coords.longitude +"&sensor=true",
+		  		success:function(data){
+		  			var address = data.results;
+		  			if (address) {
+		  				//search for tube first
+
+		  				address = address[0].address_components; //assuming the best guess is good for the neighbour
+		  				for (var i=0; i<address.length;i++) {
+		  					if (address[i].types.indexOf('neighborhood') !== -1 ||
+		  						address[i].types.indexOf('locality') !== -1 ||
+		  						address[i].types.indexOf('administrative_area_level_2') !== -1 ||
+								address[i].types.indexOf('postal_town') !== -1 ) {
+		  						console.log(address[i].long_name);
+		  						break;
+		  					}
+		  				}
+		  			}
+		  		}
+		  	})
+		  }, function(){
+		  	//error
+		  });
+		} else {
+		  console.log('not supported');
+		}
+
 		//removing the loader
 		$('#loader').fadeOut('normal',function(){
 			this.remove();
@@ -53,17 +83,18 @@ require([
 
 		
 
-
-		//adding today weather
-		$foreCast.html(mainTemplate ({
-			id: 1,
-			location: location,
-			summary : weather.currently.summary,
-			temperature : Math.round(weather.currently.temperature) + "&#176;",
-			description : weatherQuotes.partlyCloudy[0],
-			icon:getSkyconStatus(weather.currently.icon),
-			active: true
-		}));
+		function PrintTodayForecast(){
+			//adding today weather
+			$foreCast.html(mainTemplate ({
+				id: 1,
+				location: location,
+				summary : weather.currently.summary,
+				temperature : Math.round(weather.currently.temperature) + "&#176;",
+				description : weatherQuotes.partlyCloudy[0],
+				icon:getSkyconStatus(weather.currently.icon),
+				active: true
+			}));
+		}
 		navDays += navLinkTemplate({id:1, name:'Today', current:true});
 
 		//adding forecast
@@ -90,8 +121,8 @@ require([
 		var iconContainer = $foreCast.find('.condition-animation').each(function(i,el){
 			skycons.add(el, Skycons[$(el).data('icon')]);
 		});
-		skycons.play();
-
+		
+		//skycons.play();
 
 		//adding the nav
 		$('nav ul').html(navDays);
