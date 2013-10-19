@@ -122,7 +122,7 @@ require([
 			skycons.add(el, Skycons[$(el).data('icon')]);
 		});
 		
-		//skycons.play();
+		skycons.play();
 
 		//adding the nav
 		$('nav ul').html(navDays);
