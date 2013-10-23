@@ -171,11 +171,11 @@ nav {
     color: #2da7df;
     margin: 0px;
     padding-right: 8px;
-    line-height: 15px;
+    line-height: 18px;
 }
 
 .condition-animation {
-    margin: 25px auto;
+    margin: 15px auto 0px;
 }
 
 .description {
