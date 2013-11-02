@@ -83,18 +83,17 @@ require([
 
 		
 
-		function PrintTodayForecast(){
-			//adding today weather
-			$foreCast.html(mainTemplate ({
-				id: 1,
-				location: location,
-				summary : weather.currently.summary,
-				temperature : Math.round(weather.currently.temperature) + "&#176;",
-				description : weatherQuotes.partlyCloudy[0],
-				icon:getSkyconStatus(weather.currently.icon),
-				active: true
-			}));
-		}
+		//adding today weather
+		$foreCast.html(mainTemplate ({
+			id: 1,
+			location: location,
+			summary : weather.currently.summary,
+			temperature : Math.round(weather.currently.temperature) + "&#176;",
+			description : weatherQuotes.partlyCloudy[0],
+			icon:getSkyconStatus(weather.currently.icon),
+			active: true
+		}));
+		
 		navDays += navLinkTemplate({id:1, name:'Today', current:true});
 
 		//adding forecast
