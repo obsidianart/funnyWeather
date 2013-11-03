@@ -1,11 +1,15 @@
 require([
+        "jquery",
 		"forecast"
 	], function (
+        $,
 		Forecast
 	) {	
 		//location
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(pos){
+            $('.location-instruction').hide();
+
             //success
             $.ajax({
                 url:"http://maps.googleapis.com/maps/api/geocode/json?latlng="+ pos.coords.latitude +","+ pos.coords.longitude +"&sensor=true",

@@ -12,6 +12,21 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+        <aside id="project-info">
+            <h1>Funny Weather</h1>
+            <p>Design &amp; JavaScript</p>
+            <h2><a target="_blank" href="http://www.obsidianart.com">Stefano Solinas - obsidianart</a></h2>
+
+            <p>Html &amp; CSS</p>
+            <h2><a target="_blank" href="http://www.obsidianart.com/wp/tunde/">T&uuml;nde Szir&aacute;k</a></h2>
+
+            <p>Thanks to:</p>
+            <a class="sources-link" target="_blank" href="http://forecast.io">Forecast.io - Forecast</a><br>
+            <a class="sources-link" target="_blank" href="https://github.com/darkskyapp/skycons">Skycons - svg icons</a><br>
+            <a class="sources-link" target="_blank" href="http://cyrilmottier.com">Cyril Mottier - Mobile frame</a><br>
+            <a class="sources-link" target="_blank" href="#">Google Api - Reverse Location Service</a>
+
+        </aside>
         <div class="container">
             <div class="content-wrapper">
                 <nav>
@@ -26,21 +41,15 @@
                     <div id="canvasloader-container" class="wrapper"></div>
                     <h2>Forecasting the weather!<br>Please wait...</h2>
                 </div>
-                <div id="message" class="user-info">
+                <div id="message" style="display:none" class="user-info">
 
                 </div>
             </div>
-
+                <p class="instructions swipe-instruction">Swipe to see the forecast</p>
         </div>
-        <footer>
-            <a target="_blank" href="http://www.obsidianart.com">Design and code: Stefano Solinas</a><br><br>
-
-            <a target="_blank" href="http://forecast.io">Forecast.io</a> - 
-            <a target="_blank" href="https://github.com/darkskyapp/skycons">Skycons - svg icons</a> -
-            <a target="_blank" href="http://cyrilmottier.com">Cyril Mottier - Mobile frame</a>
-
-        </footer>
-
+        <p class="instructions location-instruction">Allow your browser<br>to use geo location</p>
+       
+        
         <script src="http://heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js"></script>
         <script>
             //loader

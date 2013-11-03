@@ -72,6 +72,8 @@ body {
     background: transparent url("../img/phone.png") no-repeat;  
     margin: 50px auto;
     padding-top: 108px;
+    display: inline-block;
+    position: relative;
 }
 
 .content-wrapper {
@@ -157,7 +159,7 @@ nav {
 /*main*/
 
 .location {
-    font-size: 58px;
+    font-size: 35px;
     font-weight: lighter;
     text-align: right;
     margin: 0px;
@@ -201,6 +203,87 @@ nav {
     z-index: 100;
 }
 
+/*------Project informations--------*/
+
+#project-info a {
+    text-decoration: none;
+}
+
+#project-info {
+    max-width: 25%;
+    padding: 30px;
+    display: inline-block;
+    margin-right: 10%;
+    vertical-align: top;
+    background-color: #62bde7;
+    margin-bottom: -100%;
+    padding-bottom: 100%;
+    color: #ffffff;
+}
+
+#project-info a {
+    color: #ffffff;
+}
+
+#project-info a:hover {
+    opacity: 0.5;
+}
+
+#project-info h1 {
+    font-size: 50px;
+}
+
+#project-info p {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#project-info h2 {
+    font-size: 30px;
+    font-weight: lighter;
+    margin-top: 0px;
+}
+
+#project-info .sources-link {
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+/*------Instructions--------*/
+
+.instructions {
+    width: 100%;
+    font-size: 22px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.instructions.swipe-instruction {
+    position: absolute;
+    top: 33%;
+    left: 460px;
+}
+
+.instructions.swipe-instruction:before {
+    content: url('../img/arrow-1.png');
+    position: absolute;
+    top: -2px;
+    left: -72px;
+}
+
+.instructions.location-instruction {
+    position: fixed;
+    top: 2%;
+    left: 80%;
+}
+
+.instructions.location-instruction:after {
+    content: url('../img/arrow-2.png');
+    position: absolute;
+    top: -25px;
+    left: 200px;
+}
+
+
 /*------Loader--------*/
 #loader {
     padding-top:140px;
@@ -235,12 +318,12 @@ i {
 }
 
 
-
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
 @media only screen and (min-width: 35em) {
+
 
 }
 
@@ -250,6 +333,84 @@ i {
        (min-resolution: 120dpi) {
 
 }
+
+@media only screen and (max-width : 1224px) {
+    #project-info {
+        max-width: 20%;
+    }
+    #project-info h1 {
+        font-size: 43px;
+    }
+    #project-info p, 
+    #project-info h2 {
+        font-size: 20px;
+    }
+    .instructions.swipe-instruction {
+        width: 30%;
+    }
+    .instructions.location-instruction {
+        left: 75%;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .instructions.location-instruction,
+    .instructions.swipe-instruction {
+        display: none;
+    } 
+}
+
+@media only screen and (max-width : 768px) {
+    #project-info {
+        max-width: 14%;
+    }
+    #project-info h1 {
+        font-size: 26px;
+    }
+    #project-info p {
+        font-size: 15px;
+    } 
+    #project-info h2 {
+        font-size: 13px;
+        padding-bottom: 15px;
+    }
+
+    #project-info .sources-link {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width : 633px) {
+    #project-info {
+        display: none;
+    }
+    .container {
+        display: block;
+    }
+}
+@media only screen and (max-width : 320px) {
+    .container {
+        background: #2da7df;
+        width: inherit;
+        height: inherit;
+        padding-top: 0px;
+        margin: 0px auto;
+        padding-bottom: 10px;
+        padding-top: 8px;
+    }
+    .content-wrapper {
+        background: #ffffff;
+        margin: auto;
+    }
+    .location {
+        font-size: 30px;
+    }
+    .description {
+        font-size: 26px;
+        padding-right: 8px;
+    }
+}
+
 
 /* ==========================================================================
    Helper classes
