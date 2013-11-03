@@ -191,25 +191,48 @@ nav {
     color: #2da7df;
 }
 
-
-/*------Loader--------*/
-#loader {
+.user-info {
     position:absolute;
     top:0px;
     left:0px;
     right:0px;
     bottom:0px;
-    padding-top:140px;
-    text-align: center;
     background-color: white;
     z-index: 100;
+}
+
+/*------Loader--------*/
+#loader {
+    padding-top:140px;
+    text-align: center;
 }
 
 #loader h2 {
     font-size:20px;
 }
 
-/*------Carousel--------*/
+/*------Error messages--------*/
+
+.error {
+    padding: 15px;
+    text-align: center;
+}
+
+.main-error-message {
+    font-size: 18px;
+    padding-top: 60px;
+}
+
+.error-joke {
+    padding-top: 50px;
+    color: #2da7df;
+    font-weight: bolder;
+    font-size: 17px;
+}
+i {
+    padding-top: 11px;
+    display: inline-block;
+}
 
 
 

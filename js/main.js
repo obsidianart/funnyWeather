@@ -47,10 +47,10 @@ require([
               
             })
           }, function(){
-          	$('#loader').html('Google is not helping me out in locating you, sorry.');
+          	$('#message').html('Google is not helping me out in locating you, sorry.');
           });
         } else {
-        	$('#loader').html('<div class="error"><p>Sorry, I can\'t understand where you are, I will tell you a joke instead...</p><p>What did the ocean say to the other ocean?<br> Nothing they just waved...</p><p>Did you Sea what I did there?<br>I\'m shore you did, beach.</b>') 
+        	$('#message').html('<div class="error"><p class="main-error-message">Sorry, I can\'t understand where you are, I will tell you a joke instead...</p><p class="error-joke">Why did the weather want privacy?<br><i>It was changing<i></p>') 
 
         }
 
