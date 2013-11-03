@@ -64,6 +64,7 @@ textarea {
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
     color:#333;
+    -webkit-text-size-adjust:100%;
 }
 
 .container {
