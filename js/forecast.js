@@ -71,8 +71,12 @@ define([
 			$('nav ul').html(navDays);
 
 			
+			var dayWidth = $('#forecast-wrapper').width();
+			$('.day').width(dayWidth);
+
 			//iScroll
-			$('#forecast').width(294*$('.day').length);
+			$('#forecast').width(dayWidth *$('.day').length);
+
 			window.myScroll = new iScroll('forecast-wrapper', {
 				hScrollbar: false,
 				vScrollbar: false,
