@@ -3,6 +3,7 @@ requirejs.config({
 	paths: {
 	    text: 'js/vendor/text',
 	    jquery: 'js/vendor/jquery-1.10.1',
+	    jquerytextfit : 'js/vendor/jquery.textfit',
 	    iscroll: 'js/vendor/iscroll/iscroll',
 	    underscore: 'js/vendor/underscore-min',
 	    forecast: 'js/forecast',

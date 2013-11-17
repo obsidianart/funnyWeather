@@ -3,6 +3,7 @@
 			
 define([
 	"jquery",
+	"jquerytextfit",
 	"underscore",
 	"iscroll",
 	"js/vendor/skycons",
@@ -12,6 +13,7 @@ define([
 	"text!templates/main.html"
 	], function (
 		$,
+        textFit,
 		_,
 		_iscroll,
 		_Skycons,
@@ -81,7 +83,7 @@ define([
 			$('.day').width(dayWidth);
 
 			//iScroll
-			//$('#forecast').width(dayWidth * $('.day').length);
+			$('#forecast').width(dayWidth * $('.day').length);
 
 			window.myScroll = new iScroll('forecast-wrapper', {
 				hScrollbar: false,
@@ -108,13 +110,36 @@ define([
 				pos-=100; //I want the menu to be on the left
 				pos = pos>0? pos : 0;
 				$datemenu.css('left',pos * -1)
-			}
+			};
+
+			//update text height with real heigth
+
+			//fitting text for location
+			$('.location').each(function(i,el){
+				textFit(el,{
+					maxFontSize: $(el).css('font-size'),
+					multiLine: false,
+					detectMultiLine: false
+				});
+			})
+
+			//fitting text for descriptions
+			$('.description').each(function(i,el){
+				textFit(el,{
+					maxFontSize: $(el).css('font-size'),
+					multiLine: true,
+					detectMultiLine: false
+				});
+			});
+
+			
+			
 
 			//Binding menus to iscroll
 			$('nav ul a').click(function(e){
 				e.preventDefault();
 				myScroll.scrollToPage($(e.target).data('page') - 1, 500);
-			})
+			});
 
 			//adding Keyboard
 			$(document).keydown(function(e){
