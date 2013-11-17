@@ -1,7 +1,10 @@
 define([],
     function() {
         return {
-			"partlyCloudy" : [
+        	"cold" : [
+        		'Be aware of the <span class="highlighted">penguins</span>, they can be aggressive!'
+        	],
+			"clouds" : [
 				'Just enough <span class="highlighted">sun</span> to forget your <span class="highlighted">umbrella</span>'
 			]
 		}

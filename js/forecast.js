@@ -1,3 +1,6 @@
+// Are you thinking that I should have separated the data from the template so I could have change the forecast system at any time? I agree http://xkcd.com/974/
+// There's already libraries that do that, this application is an example of require with ajax call not a production ready app.
+			
 define([
 	"jquery",
 	"underscore",
@@ -33,7 +36,7 @@ define([
 				location: location,
 				summary : weather.currently.summary,
 				temperature : Math.round(weather.currently.temperature) + "&#176;",
-				description : weatherQuotes.partlyCloudy[0],
+				description : getQuotes(weather.currently),
 				icon:getSkyconStatus(weather.currently.icon),
 				active: true
 			}));
@@ -45,12 +48,13 @@ define([
 				var date, day;
 
 				if (i==0) return; //first one is today
+				var minTemp = el.temperatureMin ? Math.round(el.temperatureMin) : '?';
 				$foreCast.append(mainTemplate ({
 					id:i+1,
 					location: location,
 					summary : el.summary,
-					temperature : Math.round(el.temperatureMin) + "&#176; to " + Math.round(el.temperatureMax) + "&#176;",
-					description : weatherQuotes.partlyCloudy[0],
+					temperature : minTemp + "&#176; to " + Math.round(el.temperatureMax) + "&#176;",
+					description : getQuotes(el),
 					icon:getSkyconStatus(el.icon),
 					active: false
 				}));
@@ -75,7 +79,7 @@ define([
 			$('.day').width(dayWidth);
 
 			//iScroll
-			$('#forecast').width(dayWidth *$('.day').length);
+			//$('#forecast').width(dayWidth * $('.day').length);
 
 			window.myScroll = new iScroll('forecast-wrapper', {
 				hScrollbar: false,
@@ -122,7 +126,20 @@ define([
 			});
 
 
+			function getQuotes(el){
+				var wq;
+				if (el.temperatureMin < 0) {
+					wq = weatherQuotes.cold;
+				} else {
+					wq = weatherQuotes.clouds;
+				}
 
+				return wq[getRnd(wq.length)];
+			}
+
+			function getRnd(n) {
+				return parseInt(Math.random() * n);
+			}
 
 			function getSkyconStatus(icon) {
 				return icon.toUpperCase().replace(/-/gi,'_')
