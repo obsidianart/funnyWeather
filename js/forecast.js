@@ -6,6 +6,7 @@ define([
 	"underscore",
 	"iscroll",
 	"js/vendor/skycons",
+	"js/vendor/js-weighted-list",
 	"js/quotes",
 	"js/carousel",
 	"text!templates/main.html"
@@ -14,6 +15,7 @@ define([
 		_,
 		_iscroll,
 		_Skycons,
+		_weightedList,
 		weatherQuotes,
 		carousel,
 		_mainTemplate
@@ -126,15 +128,65 @@ define([
 			});
 
 
+			//Return the right quote
 			function getQuotes(el){
-				var wq;
-				if (el.temperatureMin < 0) {
-					wq = weatherQuotes.cold;
-				} else {
-					wq = weatherQuotes.clouds;
+				var quoteWeights = [],
+				weightedList,
+				weight,
+				chooseQuote,
+				fMin = el.temperatureMin || el.apparentTemperature || el.temperatureMax ,
+				fMax = el.temperatureMax || el.apparentTemperature || el.temperatureMin ,
+				fPrecProb = el.precipProbability || 0,
+				ret = '';
+
+				/*
+					['wind',0],
+					['rain',0],
+					['littleRain',0]
+				*/
+
+				//is cold
+				if (fMin <= 12 && fMin>0) {
+					weight = Math.floor(fMin)+1;
+					quoteWeights.push(['cold',weight]);
 				}
 
-				return wq[getRnd(wq.length)];
+				//is very cold
+				if (fMin <= 0) {
+					weight = Math.floor(Math.abs(fMin))+1;
+					quoteWeights.push(['veryCold',weight]);
+				}
+
+				//is hot
+				if (fMax >22) {
+					weight = Math.floor(Math.abs(fMax))+1;
+					quoteWeights.push(['warm',weight]);
+				}
+
+				//Slight rain
+				if (fPrecProb>0.1 && fPrecProb<0.5 && el.precipType ==='rain') {
+					weight = Math.floor(Math.abs(fPrecProb)*20);
+					quoteWeights.push(['littleRain',weight]);
+				}
+
+				//Rain
+				if (fPrecProb>0.5 && el.precipType ==='rain' && el.precipIntensity > 0.2) {
+					weight = Math.floor(Math.abs(fPrecProb)*20);
+					quoteWeights.push(['rain',weight]);
+				}
+
+				if (quoteWeights.length > 0) {
+					weightedList = new WeightedList(quoteWeights);
+					chooseQuote = weatherQuotes[weightedList.peek()];
+				} else {
+					chooseQuote = weatherQuotes.generic;
+				}
+				
+				ret = chooseQuote[getRnd(chooseQuote.length) ];
+				ret = ret.replace(/{/gi,'<span class="highlighted">');
+				ret = ret.replace(/}/gi,'</span>');
+
+				return ret;
 			}
 
 			function getRnd(n) {

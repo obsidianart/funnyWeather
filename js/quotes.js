@@ -2,10 +2,23 @@ define([],
     function() {
         return {
         	"cold" : [
-        		'Be aware of the <span class="highlighted">penguins</span>, they can be aggressive!'
+        		'Is {cold}, but you can make it. Be {strong}!',
+        		'Not too {cold}, you can wear just {3 layers}!',
+        		'It is not cold, they  {said}. Is gonna be  {fine}, they said!',
+        		'You think is {cold}? In {Sweden} they would go for a bath on the lake!',
         	],
-			"clouds" : [
-				'Just enough <span class="highlighted">sun</span> to forget your <span class="highlighted">umbrella</span>'
+        	"veryCold" : [
+        		'Be scared of the {penguins}, they can be aggressive!'
+        	],
+			"littleRain" : [
+				'Just enough {sun} to forget your {umbrella}'
+			],
+			"rain": [
+				'Yeah, is gonna {rain}! It sucks!'
+			],
+			"generic": [
+				'Nothing to say, the weather is {boring}',
+				'It seem the weather is just {good}'
 			]
 		}
     }
