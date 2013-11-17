@@ -249,7 +249,12 @@ nav {
     margin-top: 0px;
 }
 
-#project-info .sources-link {
+#project-info .thanks {
+    list-style-type: none;
+    padding:0;
+}
+
+#project-info .thanks a{
     font-size: 18px;
     font-weight: lighter;
 }
@@ -379,7 +384,7 @@ i {
         padding-bottom: 15px;
     }
 
-    #project-info .sources-link {
+    #project-info .thanks a {
         font-size: 13px;
     }
 }
