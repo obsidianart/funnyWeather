@@ -61,6 +61,11 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html,
+body {
+    height: 100%;
+}
+
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
     color:#333;
@@ -216,14 +221,15 @@ nav {
 
 #project-info {
     max-width: 25%;
-    padding: 30px;
+    min-height: 94%;
+    height: auto;
+    padding: 3%;
     display: inline-block;
     margin-right: 10%;
     vertical-align: top;
     background-color: #62bde7;
-    margin-bottom: -100%;
-    padding-bottom: 100%;
     color: #ffffff;
+    
 }
 
 #project-info a {
@@ -402,7 +408,11 @@ i {
     #forecast,
     .day {
         width:auto;
-        height: 100%;
+        min-height: 90%;
+        margin-top:0;
+        margin-bottom:0;
+        padding-top:0;
+        padding-bottom:0;
     }
 
     #project-info {
@@ -422,7 +432,7 @@ i {
     }
 
     .container {
-        background: #2da7df;
+        /*background: #2da7df;*/
     }
     .content-wrapper {
         background: #ffffff;
