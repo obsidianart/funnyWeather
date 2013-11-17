@@ -2,10 +2,10 @@ define([],
     function() {
         return {
         	"cold" : [
-        		'Is {cold}, but you can make it. Be {strong}!',
+        		'It is {cold}, but you can make it. Be {strong}!',
         		'Not too {cold}, you can wear just {3 layers}!',
         		'It is not cold, they  {said}. Is gonna be  {fine}, they said!',
-        		'You think is {cold}? In {Sweden} they would go for a bath on the lake!',
+        		'Do You think is {cold}? In {Sweden} they would go for a bath on the lake!'
         	],
         	"veryCold" : [
         		'Be scared of the {penguins}, they can be aggressive!'

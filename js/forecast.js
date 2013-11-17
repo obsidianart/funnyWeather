@@ -117,7 +117,7 @@ define([
 			//fitting text for location
 			$('.location').each(function(i,el){
 				textFit(el,{
-					maxFontSize: $(el).css('font-size'),
+					maxFontSize: parseInt($(el).css('font-size')),
 					multiLine: false,
 					detectMultiLine: false
 				});
@@ -126,7 +126,7 @@ define([
 			//fitting text for descriptions
 			$('.description').each(function(i,el){
 				textFit(el,{
-					maxFontSize: $(el).css('font-size'),
+					maxFontSize: parseInt($(el).css('font-size')),
 					multiLine: true,
 					detectMultiLine: false
 				});
