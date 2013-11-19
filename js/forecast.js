@@ -27,7 +27,7 @@ define([
 				mainTemplate = _.template(_mainTemplate),
 				$foreCast = $('#forecast'),
 				location = options.location,
-				navDays = '';
+				navDays = '',
 				weekday= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
 				skycons = new Skycons({"color": "#2da7df"}),
 				weather = options.forecastData;
@@ -51,7 +51,7 @@ define([
 			$.each(weather.daily.data, function(i,el){
 				var date, day;
 
-				if (i==0) return; //first one is today
+				if (i===0) return; //first one is today
 				var minTemp = el.temperatureMin ? Math.round(el.temperatureMin) : '?';
 				$foreCast.append(mainTemplate ({
 					id:i+1,
@@ -109,8 +109,8 @@ define([
 				//TODO:put the right number to be always on the left
 				pos-=100; //I want the menu to be on the left
 				pos = pos>0? pos : 0;
-				$datemenu.css('left',pos * -1)
-			};
+				$datemenu.css('left',pos * -1);
+			}
 
 			//update text height with real heigth
 
@@ -121,7 +121,7 @@ define([
 					multiLine: false,
 					detectMultiLine: false
 				});
-			})
+			});
 
 			//fitting text for descriptions
 			$('.description').each(function(i,el){
@@ -143,14 +143,14 @@ define([
 
 			//adding Keyboard
 			$(document).keydown(function(e){
-			    if (e.keyCode === 37 || e.keyCode === 38 ) { //left and up
-			       	myScroll.scrollToPage(myScroll.currPageX - 1, 500);
-			       	return false;
-			    } else if (e.keyCode === 39 || e.keyCode === 40 ) { //right and down
-			    	myScroll.scrollToPage(myScroll.currPageX + 1, 500);
-			       	return false;
-			   }
-			});
+                if (e.keyCode === 37 || e.keyCode === 38 ) { //left and up
+                    myScroll.scrollToPage(myScroll.currPageX - 1, 500);
+                    return false;
+                } else if (e.keyCode === 39 || e.keyCode === 40 ) { //right and down
+                    myScroll.scrollToPage(myScroll.currPageX + 1, 500);
+                    return false;
+                }
+            });
 
 
 			//Return the right quote
@@ -219,8 +219,8 @@ define([
 			}
 
 			function getSkyconStatus(icon) {
-				return icon.toUpperCase().replace(/-/gi,'_')
+				return icon.toUpperCase().replace(/-/gi,'_');
 			}
-		}
+		};
     }
 );
