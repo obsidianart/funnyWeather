@@ -203,7 +203,8 @@ define([
 				if (quoteWeights.length > 0) {
 					weightedList = new WeightedList(quoteWeights);
 					chooseQuote = weatherQuotes[weightedList.peek()];
-				} else {
+				}
+				if (!chooseQuote) {
 					chooseQuote = weatherQuotes.generic;
 				}
 				

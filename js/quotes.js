@@ -1,6 +1,12 @@
 define([],
     function() {
         return {
+        	"warm" : [
+        		"{Fuck it}, I'm gonna go to the {park}",
+        		"Well, at least is {warm}",
+        		"You can {forget} your {umbrella} today",
+        		"{sunglasses}, check, {water bottle}, check"
+        	],
         	"cold" : [
         		'It is {cold}, but you can make it. Be {strong}!',
         		'Oh no, please no, not {cold} again!',
@@ -9,19 +15,22 @@ define([],
         		'Do You think it is {cold}? In {Sweden} they would go for a bath on the lake!'
         	],
         	"veryCold" : [
-        		'Be scared of the {penguins}, they can be aggressive!'
+        		'Be scared of the {penguins}, they can be aggressive!',
+        		'{Dry} your hair with care before going {out}'
         	],
 			"littleRain" : [
-				'Just enough {sun} to forget your {umbrella}'
+				'Just enough {sun} to forget your {umbrella}',
+				'It will {rain}, or {not}, maybe, fuck it'
 			],
 			"rain": [
-				'Yeah, is gonna {rain}! It sucks!'
+				'Yeah, is gonna {rain}! It sucks!',
+				'{Rain} again, fucking {new}'
 			],
 			"generic": [
 				'Nothing to say, the weather is {boring}',
 				'It seem the weather is just {good}'
 			]
-		}
+		};
     }
 );
 
