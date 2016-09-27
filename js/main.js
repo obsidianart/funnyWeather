@@ -9,6 +9,7 @@ require([
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(pos){
             $('.location-instruction').hide();
+            $('#not-working').hide();
 
             //success
             $.ajax({
@@ -34,7 +35,7 @@ require([
                     var lon = pos.coords.longitude.toFixed(4);
                     var latLon = lat + ',' +lon;
 
-                    require(['https://api.forecast.io/forecast/f3a549e99fe815ba1da83dbe4d5146cb/'+latLon+'?units=uk&exclude=minutely,hourly&callback=define'], 
+                    require(['https://api.darksky.net/forecast/f3a549e99fe815ba1da83dbe4d5146cb/'+latLon+'?units=uk&exclude=minutely,hourly&callback=define'], 
                    		function(wheather){
                    			//removing the loader
 							$('#loader').fadeOut('normal',function(){

@@ -22,6 +22,7 @@
 		</script>
     </head>
     <body>
+        <div id="not-working" style="padding:10px; background:red; color:white">This app is currently not working on some browsers. Chorme now enforces https to access user position. We are working on a solution.</div>
         <aside id="project-info">
             <h1>Funny Weather</h1>
 
@@ -37,7 +38,7 @@
             <p>Thanks to:</p>
             <ul class="thanks">
                 <li><a href="mailto:obsidianart@gmail.com">Wanna be here? Do you have new quotes?</a></li>
-                <li><a class="sources-link" target="_blank" href="http://forecast.io">Forecast.io - Forecast</a><br></li>
+                <li><a class="sources-link" target="_blank" href="https://darksky.net">Forecast - Powered by Dark Sky</a><br></li>
                 <li><a class="sources-link" target="_blank" href="https://github.com/darkskyapp/skycons">Skycons - svg icons</a><br></li>
                 <li><a class="sources-link" target="_blank" href="http://cyrilmottier.com">Cyril Mottier - Mobile frame</a><br></li>
                 <li><a class="sources-link" target="_blank" href="https://developers.google.com/maps/">Google Api - Reverse Location Service</a><br></li>
@@ -69,7 +70,7 @@
         <p class="instructions location-instruction">Allow your browser<br>to use geo location</p>
        
         
-        <script src="http://heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js"></script>
+        <script src="js/heartcode-canvasloader-min.js"></script>
         <script>
             //loader
             var cl = new CanvasLoader('canvasloader-container');
